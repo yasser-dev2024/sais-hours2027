@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#10233f">
+  <meta name="description" content="تحميل تطبيق إدارة نادي الخيل لأجهزة Android مباشرةً.">
+  <title>إدارة نادي الخيل | تحميل تطبيق Android</title>
+  <link rel="icon" href="./assets/app-icon.png" type="image/png">
+  <link rel="stylesheet" href="./assets/style.css">
+</head>
+<body>
+  <main class="page-shell">
+    <section class="hero" aria-labelledby="app-title">
+      <div class="brand-mark">
+        <img src="./assets/app-icon.png" alt="شعار إدارة نادي الخيل">
+      </div>
+      <div class="hero-copy">
+        <p class="eyebrow">النسخة الرسمية لأجهزة Android</p>
+        <h1 id="app-title">إدارة نادي الخيل</h1>
+        <p class="summary">
+          تطبيق عربي لإدارة الخيول والمشتركين والإيواء والحجوزات والمالية
+          والتنبيهات والتقارير، مع حفظ البيانات داخل جهازك والعمل دون إنترنت.
+        </p>
+
+        <dl class="release-facts" aria-label="بيانات الإصدار">
+          <div><dt>الإصدار</dt><dd><span id="app-version">2.1.1</span></dd></div>
+          <div><dt>آخر تحديث</dt><dd><span id="last-updated">2026-08-05</span></dd></div>
+          <div><dt>حجم الملف</dt><dd><span id="apk-size">46.25 MB</span></dd></div>
+        </dl>
+
+        <a
+          id="android-download"
+          class="download-button"
+          href="./downloads/HorseClub.apk"
+          download="HorseClub.apk"
+          type="application/vnd.android.package-archive"
+        >
+          <span aria-hidden="true">↓</span>
+          تحميل تطبيق الأندرويد
+        </a>
+        <p id="download-status" class="download-status" role="status" aria-live="polite">
+          سيتم التحقق من الملف تلقائيًا قبل بدء التحميل.
+        </p>
+      </div>
+    </section>
+
+    <section class="information-grid">
+      <article class="info-card">
+        <p class="card-number">01</p>
+        <h2>طريقة التثبيت</h2>
+        <ol>
+          <li>اضغط زر «تحميل تطبيق الأندرويد» وانتظر اكتمال التنزيل.</li>
+          <li>افتح ملف <bdi>HorseClub.apk</bdi> من التنزيلات.</li>
+          <li>وافق على التثبيت، ثم افتح التطبيق من شاشة جهازك.</li>
+        </ol>
+      </article>
+
+      <article class="info-card notice-card">
+        <p class="card-number">02</p>
+        <h2>عند طلب السماح</h2>
+        <p>
+          قد يطلب Android السماح بالتثبيت من هذا المصدر لأن التطبيق يُحمّل
+          مباشرةً. فعّل السماح للمتصفح المستخدم فقط، ثم أكمل التثبيت.
+        </p>
+      </article>
+    </section>
+
+    <aside class="availability">
+      <span aria-hidden="true">✓</span>
+      التطبيق متاح حاليًا لأجهزة Android فقط.
+    </aside>
+
+    <section class="integrity" aria-label="بصمة ملف التطبيق">
+      <h2>بصمة الملف SHA-256</h2>
+      <code id="apk-sha256">87F8F282D60FC36455E3059CC76AD631669C4983B52299A668FA92FF7C11171B</code>
+    </section>
+  </main>
+
+  <script>
+    (() => {
+      const link = document.getElementById("android-download");
+      const status = document.getElementById("download-status");
+      const minimumApkSize = 1024 * 1024;
+
+      link.addEventListener("click", async (event) => {
+        if (link.dataset.verified === "true") {
+          delete link.dataset.verified;
+          return;
+        }
+
+        event.preventDefault();
+        const downloadUrl = new URL(link.getAttribute("href"), window.location.href);
+
+        if (!downloadUrl.pathname.toLowerCase().endsWith(".apk")) {
+          status.textContent = "تعذر التحميل: رابط الملف لا ينتهي بامتداد APK.";
+          status.className = "download-status error";
+          return;
+        }
+
+        link.setAttribute("aria-busy", "true");
+        status.textContent = "جارٍ التحقق من سلامة رابط التطبيق…";
+        status.className = "download-status checking";
+
+        try {
+          const response = await fetch(downloadUrl, {
+            method: "HEAD",
+            cache: "no-store",
+            credentials: "same-origin"
+          });
+          const contentType = (response.headers.get("content-type") || "").toLowerCase();
+          const contentLength = Number(response.headers.get("content-length") || 0);
+
+          if (!response.ok) throw new Error(`HTTP ${response.status}`);
+          if (contentType.includes("text/html") || contentType.includes("application/xhtml")) {
+            throw new Error("HTML_RESPONSE");
+          }
+          if (!Number.isFinite(contentLength) || contentLength < minimumApkSize) {
+            throw new Error("INVALID_SIZE");
+          }
+
+          status.textContent = "تم التحقق من الملف. بدأ التحميل الآن.";
+          status.className = "download-status success";
+          link.dataset.verified = "true";
+          link.click();
+        } catch (error) {
+          status.textContent = "تعذر بدء التحميل لأن ملف APK غير متاح أو أعاد الخادم صفحة خطأ. حاول لاحقًا.";
+          status.className = "download-status error";
+        } finally {
+          link.removeAttribute("aria-busy");
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
