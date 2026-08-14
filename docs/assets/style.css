@@ -928,8 +928,7 @@ svg {
 .download-button:focus-visible,
 .primary-action:focus-visible,
 .secondary-action:focus-visible,
-.header-action:focus-visible,
-.footer-contact a:focus-visible {
+.header-action:focus-visible {
   outline: 3px solid var(--gold-300);
   outline-offset: 4px;
 }
@@ -982,7 +981,7 @@ svg {
 
 .footer-grid {
   display: grid;
-  grid-template-columns: 1.5fr 0.65fr 1fr;
+  grid-template-columns: 1.5fr 0.65fr;
   gap: 70px;
   padding-bottom: 55px;
 }
@@ -991,23 +990,20 @@ svg {
   color: rgba(255, 255, 255, 0.52);
 }
 
-.footer-brand > p,
-.footer-contact > p {
+.footer-brand > p {
   margin: 17px 0 0;
   color: rgba(255, 255, 255, 0.52);
   font-size: 12.5px;
   line-height: 1.9;
 }
 
-.footer-links,
-.footer-contact {
+.footer-links {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
 }
 
-.footer-links h2,
-.footer-contact h2 {
+.footer-links h2 {
   margin: 0 0 15px;
   color: var(--gold-300);
   font-size: 13px;
@@ -1022,33 +1018,6 @@ svg {
 
 .footer-links a:hover {
   color: var(--white);
-}
-
-.footer-contact > p {
-  margin: 0 0 13px;
-}
-
-.footer-contact > a {
-  display: inline-flex;
-  gap: 9px;
-  align-items: center;
-  padding: 10px 15px;
-  color: var(--white);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 10px;
-  background: rgba(255, 255, 255, 0.06);
-  font-size: 13px;
-  font-weight: 800;
-  text-decoration: none;
-}
-
-.footer-contact svg {
-  width: 20px;
-  fill: none;
-  stroke: #82d69a;
-  stroke-width: 1.55;
-  stroke-linecap: round;
-  stroke-linejoin: round;
 }
 
 .footer-bottom {
@@ -1397,12 +1366,12 @@ svg {
   }
 
   .footer-grid {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     gap: 38px 25px;
   }
 
   .footer-brand {
-    grid-column: 1 / -1;
+    grid-column: auto;
   }
 
   .footer-bottom {
