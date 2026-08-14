@@ -204,6 +204,17 @@ class _Destination {
   final IconData selectedIcon;
 }
 
+@visibleForTesting
+Widget buildAlertBellForTesting({
+  required int count,
+  required VoidCallback onPressed,
+  bool compact = false,
+}) => _AlertBellButton(
+  count: count,
+  onPressed: onPressed,
+  compact: compact,
+);
+
 class _AlertBellButton extends StatefulWidget {
   const _AlertBellButton({
     required this.count,

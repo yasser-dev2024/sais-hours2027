@@ -3,127 +3,277 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#10233f">
-  <meta name="description" content="حمّل تطبيق سايس الخيل وانقل إدارة إسطبلك نقلة نوعية رقمية: الخيول والمشتركون والمالية والتنبيهات والتقارير في مكان واحد.">
-  <title>سايس الخيل الرقمي | النقلة الرقمية لإدارة إسطبلك</title>
+  <meta name="theme-color" content="#10283a">
+  <meta name="description" content="سايس الخيل — منظومة عربية تنقل إدارة الإسطبل نقلة نوعية رقمية، وتجمع الخيول والمشتركين والحجوزات والمالية والتنبيهات والتقارير في مكان واحد.">
+  <meta property="og:locale" content="ar_SA">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="سايس الخيل | مستقبل إدارة الإسطبل">
+  <meta property="og:description" content="امنح إسطبلك إدارة أكثر وضوحًا واحترافية، من ملف الخيل إلى التنبيهات والتقارير.">
+  <meta property="og:image" content="https://yasser-dev2024.github.io/sais-hours2027/assets/horse-hero-cinematic.png">
+  <title>سايس الخيل | مستقبل إدارة الإسطبل</title>
   <link rel="icon" href="./assets/app-icon.png" type="image/png">
+  <link rel="preload" href="./assets/horse-hero-cinematic.webp" as="image" type="image/webp">
   <link rel="stylesheet" href="./assets/style.css">
 </head>
 <body>
-  <main class="page-shell">
-    <section class="hero" aria-labelledby="app-title">
-      <div class="brand-mark">
-        <img src="./assets/app-icon.png" alt="شعار إدارة نادي الخيل">
+  <a class="skip-link" href="#main-content">انتقل إلى المحتوى</a>
+
+  <header class="site-header">
+    <nav class="navigation container" aria-label="التنقل الرئيسي">
+      <a class="brand" href="#home" aria-label="سايس الخيل - الرئيسية">
+        <span class="brand-symbol"><img src="./assets/app-icon.png" alt=""></span>
+        <span class="brand-copy">
+          <strong>سايس الخيل</strong>
+          <small>الإدارة الرقمية للإسطبل</small>
+        </span>
+      </a>
+
+      <div class="nav-links">
+        <a href="#vision">الرؤية</a>
+        <a href="#features">المزايا</a>
+        <a href="#journey">رحلة العمل</a>
       </div>
-      <div class="hero-copy">
-        <p class="eyebrow">النسخة الرسمية لأجهزة Android</p>
-        <h1 id="app-title">سايس الخيل الرقمي</h1>
-        <p class="summary">
-          انقل إسطبلك نقلة نوعية رقمية مع منظومة عربية متكاملة تجمع إدارة
-          الخيول والمشتركين والإيواء والحجوزات والمالية والتنبيهات والتقارير،
-          لتصبح المتابعة أدق والقرارات أسرع والعمل اليومي أسهل.
-        </p>
-        <p class="trial-highlight">جرّب جميع المزايا لمدة 20 يومًا، ثم فعّل نسختك مدى الحياة.</p>
 
-        <dl class="release-facts" aria-label="بيانات الإصدار">
-          <div><dt>الإصدار</dt><dd><span id="app-version">2.1.1</span></dd></div>
-          <div><dt>آخر تحديث</dt><dd><span id="last-updated">2026-08-14</span></dd></div>
-          <div><dt>حجم الملف</dt><dd><span id="apk-size">46.56 MB</span></dd></div>
-        </dl>
+      <a class="header-action" href="#download">تحميل التطبيق</a>
+    </nav>
+  </header>
 
-        <a
-          id="android-download"
-          class="download-button"
-          href="./downloads/SaisAlkhail-v2.1.1-build22.apk"
-          download="SaisAlkhail-v2.1.1-build22.apk"
-          type="application/vnd.android.package-archive"
-        >
-          <span aria-hidden="true">↓</span>
-          تحميل تطبيق الأندرويد
-        </a>
-        <p id="download-status" class="download-status" role="status" aria-live="polite">
-          نسخة Android الرسمية جاهزة للتحميل.
-        </p>
+  <main id="main-content">
+    <section class="hero" id="home" aria-labelledby="app-title">
+      <div class="hero-shade" aria-hidden="true"></div>
+      <div class="container hero-layout">
+        <div class="hero-copy">
+          <p class="eyebrow light"><span></span> إدارة الإسطبل بروح الفروسية</p>
+          <h1 id="app-title">سايس <em>الخيل</em></h1>
+          <p class="hero-lead">
+            انقل إسطبلك نقلة نوعية رقمية بمنظومة عربية تجمع التفاصيل اليومية في رؤية واحدة؛
+            لتصبح المتابعة أدق، والقرارات أسرع، والعمل أكثر احترافية.
+          </p>
+
+          <div class="hero-actions">
+            <a class="primary-action" href="#download">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0 0 5-5m-5 5-5-5M5 20h14"/></svg>
+              حمّل التطبيق الآن
+            </a>
+            <a class="secondary-action" href="#features">اكتشف المزايا</a>
+          </div>
+
+          <ul class="hero-assurances" aria-label="مزايا سريعة">
+            <li><span aria-hidden="true">✓</span> واجهة عربية</li>
+            <li><span aria-hidden="true">✓</span> يعمل دون إنترنت</li>
+            <li><span aria-hidden="true">✓</span> مصمم للإسطبل</li>
+          </ul>
+        </div>
+      </div>
+
+      <a class="scroll-cue" href="#vision" aria-label="تابع لاكتشاف سايس الخيل">
+        <span></span>
+      </a>
+    </section>
+
+    <section class="vision section" id="vision" aria-labelledby="vision-title">
+      <div class="container vision-grid">
+        <div class="section-intro reveal">
+          <p class="eyebrow"><span></span> نقلة رقمية تليق بإسطبلك</p>
+          <h2 id="vision-title">حين تجتمع التفاصيل، تصبح الصورة أوضح.</h2>
+        </div>
+        <div class="vision-copy reveal">
+          <p>
+            سايس الخيل ليس مجرد سجل؛ بل مساحة عمل متكاملة تمنحك حضورًا كاملًا على عمليات الإسطبل،
+            وتحوّل المتابعة المتفرقة إلى تجربة منظمة تنمو معك يومًا بعد يوم.
+          </p>
+          <div class="value-strip" aria-label="قيمة سايس الخيل">
+            <div><strong>تنظيم</strong><span>كل سجل في موضعه</span></div>
+            <div><strong>متابعة</strong><span>كل موعد في وقته</span></div>
+            <div><strong>وضوح</strong><span>كل قرار مبني على صورة أدق</span></div>
+          </div>
+        </div>
       </div>
     </section>
 
-    <section class="features" aria-labelledby="features-title">
-      <div class="section-heading">
-        <p class="eyebrow">كل ما يحتاجه الإسطبل بين يديك</p>
-        <h2 id="features-title">إدارة متكاملة تصنع فرقًا حقيقيًا كل يوم</h2>
-        <p>
-          ودّع تشتت الدفاتر والملفات، واجمع تفاصيل إسطبلك في تجربة واضحة
-          تساعدك على التنظيم والمتابعة والنمو بثقة.
-        </p>
-      </div>
+    <section class="features section" id="features" aria-labelledby="features-title">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="eyebrow centered"><span></span> منظومة واحدة، تفاصيل مترابطة</p>
+          <h2 id="features-title">كل ما يحتاجه الإسطبل بين يديك</h2>
+          <p>تجربة يومية مصممة لتخفف التشتيت وتمنحك السيطرة على العمل من أول نظرة.</p>
+        </div>
 
-      <div class="feature-grid">
-        <article class="feature-card">
-          <span class="feature-icon" aria-hidden="true">♞</span>
-          <h3>ملف رقمي لكل خيل</h3>
-          <p>بيانات الخيل وصوره وعلاجه وتطعيماته وتحذيته وإيوائه وتمارينه في سجل واحد منظم.</p>
-        </article>
-        <article class="feature-card">
-          <span class="feature-icon" aria-hidden="true">◎</span>
-          <h3>مشتركون وحجوزات بوضوح</h3>
-          <p>تابع المشتركين والاشتراكات والحجوزات اليومية والدفعات دون أوراق متفرقة.</p>
-        </article>
-        <article class="feature-card">
-          <span class="feature-icon" aria-hidden="true">◈</span>
-          <h3>صورة مالية أدق</h3>
-          <p>سجّل الإيرادات والمصروفات والقيود المرتبطة لتعرف وضع الإسطبل المالي بسرعة.</p>
-        </article>
-        <article class="feature-card">
-          <span class="feature-icon" aria-hidden="true">◷</span>
-          <h3>تنبيهات في وقتها</h3>
-          <p>لا تفوّت موعد علاج أو تطعيم أو تحذية أو انتهاء اشتراك بفضل مركز التنبيهات.</p>
-        </article>
-        <article class="feature-card">
-          <span class="feature-icon" aria-hidden="true">▤</span>
-          <h3>تقارير تدعم قرارك</h3>
-          <p>حوّل السجلات اليومية إلى تقارير واضحة قابلة للطباعة والمشاركة عند الحاجة.</p>
-        </article>
-        <article class="feature-card">
-          <span class="feature-icon" aria-hidden="true">✓</span>
-          <h3>يعمل دون إنترنت</h3>
-          <p>تبقى بياناتك داخل جهازك وتواصل أعمالك الأساسية حتى عند انقطاع الاتصال.</p>
-        </article>
+        <div class="feature-grid">
+          <article class="feature-card feature-card-main reveal">
+            <div class="feature-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M7 20v-7.4a5 5 0 0 1 2.4-4.3L15 5l2 2.4-2.7 1.5 2.7 2.6V20M7 16h10M9.5 8.3 7 5.5 9 3l3.7 3.4"/></svg>
+            </div>
+            <p class="feature-index">01</p>
+            <h3>ملف رقمي متكامل لكل خيل</h3>
+            <p>اجمع بيانات الخيل وصوره وسجله الصحي والتطعيمات والتحذية والإيواء والتمارين في ملف واحد واضح وسهل الرجوع إليه.</p>
+            <span class="feature-line"></span>
+          </article>
+
+          <article class="feature-card reveal">
+            <div class="feature-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M18 8a6 6 0 1 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9M9.5 21h5M16.5 5.5 19 3"/></svg>
+            </div>
+            <p class="feature-index">02</p>
+            <h3>تنبيهات لا تدع موعدًا يفوتك</h3>
+            <p>جرس تنبيه واضح يضع التطعيم والعلاج والتحذية والإيواء وانتهاء الاشتراكات أمامك في الوقت المناسب.</p>
+          </article>
+
+          <article class="feature-card reveal">
+            <div class="feature-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M16 20v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2M9 10a4 4 0 1 0 0-8 4 4 0 0 0 0 8M19 8v6M16 11h6"/></svg>
+            </div>
+            <p class="feature-index">03</p>
+            <h3>المشتركون والحجوزات بوضوح</h3>
+            <p>تابع المشتركين والاشتراكات والحجوزات اليومية والمدفوعات ضمن مسار منظم وسريع.</p>
+          </article>
+
+          <article class="feature-card reveal">
+            <div class="feature-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M4 19V9m5 10V5m5 14v-7m5 7V3M2 21h20"/></svg>
+            </div>
+            <p class="feature-index">04</p>
+            <h3>صورة مالية أدق</h3>
+            <p>سجّل الإيرادات والمصروفات والقيود المرتبطة، وشاهد وضع الإسطبل المالي بوضوح أكبر.</p>
+          </article>
+
+          <article class="feature-card reveal">
+            <div class="feature-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M5 3h14v18H5zM8 7h8M8 11h8M8 15h5"/></svg>
+            </div>
+            <p class="feature-index">05</p>
+            <h3>تقارير تدعم قرارك</h3>
+            <p>حوّل السجلات اليومية إلى تقارير احترافية تساعدك على المتابعة والطباعة والمشاركة عند الحاجة.</p>
+          </article>
+
+          <article class="feature-card feature-card-accent reveal">
+            <div class="feature-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M20 12a8 8 0 1 1-8-8M20 4v8h-8M8 12l2.5 2.5L16 9"/></svg>
+            </div>
+            <p class="feature-index">06</p>
+            <h3>جاهز للعمل أينما كنت</h3>
+            <p>واصل أعمالك الأساسية حتى عند ضعف الاتصال، وابقَ قريبًا من تفاصيل إسطبلك في كل وقت.</p>
+          </article>
+        </div>
       </div>
     </section>
 
-    <section class="information-grid">
-      <article class="info-card">
-        <p class="card-number">01</p>
-        <h2>طريقة التثبيت</h2>
-        <ol>
-          <li>اضغط زر «تحميل تطبيق الأندرويد» وانتظر اكتمال التنزيل.</li>
-          <li>افتح ملف <bdi id="apk-filename">SaisAlkhail-v2.1.1-build22.apk</bdi> من التنزيلات.</li>
-          <li>وافق على التثبيت، ثم افتح التطبيق من شاشة جهازك.</li>
-        </ol>
-      </article>
-
-      <article class="info-card notice-card">
-        <p class="card-number">02</p>
-        <h2>عند طلب السماح</h2>
-        <p>
-          قد يطلب Android السماح بالتثبيت من هذا المصدر لأن التطبيق يُحمّل
-          مباشرةً. فعّل السماح للمتصفح المستخدم فقط، ثم أكمل التثبيت.
-        </p>
-      </article>
+    <section class="transformation section" aria-labelledby="transformation-title">
+      <div class="transformation-overlay" aria-hidden="true"></div>
+      <div class="container transformation-inner">
+        <div class="transformation-copy reveal">
+          <p class="eyebrow light"><span></span> دقة التفاصيل تصنع الفرق</p>
+          <h2 id="transformation-title">من إدارة تعتمد على الذاكرة، إلى منظومة تعمل بثقة.</h2>
+          <p>
+            عندما تصبح سجلات الخيل والمواعيد والحسابات في مكان واحد، تقل المهام المنسية،
+            وتتسارع المتابعة، ويصبح لكل خطوة أثر واضح.
+          </p>
+          <a href="#journey">شاهد كيف تتغيّر رحلة يومك <span aria-hidden="true">←</span></a>
+        </div>
+      </div>
     </section>
 
-    <aside class="availability">
-      <span aria-hidden="true">✓</span>
-      التطبيق متاح حاليًا لأجهزة Android فقط.
-    </aside>
+    <section class="journey section" id="journey" aria-labelledby="journey-title">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="eyebrow centered"><span></span> يوم أكثر انسيابية</p>
+          <h2 id="journey-title">ثلاث خطوات نحو إدارة أذكى</h2>
+        </div>
 
+        <div class="journey-grid">
+          <article class="journey-step reveal">
+            <span class="step-number">01</span>
+            <div class="step-mark"><span></span></div>
+            <h3>سجّل</h3>
+            <p>أضف تفاصيل الخيل والمشتركين والحجوزات والمعاملات بسهولة.</p>
+          </article>
+          <article class="journey-step reveal">
+            <span class="step-number">02</span>
+            <div class="step-mark"><span></span></div>
+            <h3>تابع</h3>
+            <p>راقب المواعيد والتنبيهات والحالة اليومية من واجهة عربية واضحة.</p>
+          </article>
+          <article class="journey-step reveal">
+            <span class="step-number">03</span>
+            <div class="step-mark"><span></span></div>
+            <h3>قرّر</h3>
+            <p>استند إلى سجل منظم وتقارير دقيقة لتقود إسطبلك بثقة.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="download-section section" id="download" aria-labelledby="download-title">
+      <div class="container">
+        <div class="download-panel reveal">
+          <div class="download-brand" aria-hidden="true">
+            <img src="./assets/app-icon.png" alt="">
+          </div>
+          <div class="download-copy">
+            <p class="eyebrow light"><span></span> ابدأ النقلة الرقمية اليوم</p>
+            <h2 id="download-title">إسطبلك يستحق إدارة تليق بطموحك.</h2>
+            <p>حمّل سايس الخيل على جهاز Android، واجعل كل تفاصيل الإسطبل أقرب إليك.</p>
+            <div class="release-facts" aria-label="معلومات التنزيل">
+              <span>الإصدار <b id="app-version">2.1.1</b></span>
+              <span>الحجم <b id="apk-size">46.56 MB</b></span>
+              <span>محدّث <b id="last-updated">2026-08-15</b></span>
+            </div>
+          </div>
+          <div class="download-area">
+            <a
+              id="android-download"
+              class="download-button"
+              href="./downloads/SaisAlkhail-v2.1.1-build22.apk"
+              download="SaisAlkhail-v2.1.1-build22.apk"
+              type="application/vnd.android.package-archive"
+            >
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0 0 5-5m-5 5-5-5M5 20h14"/></svg>
+              <span><strong>تحميل التطبيق</strong><small>متوفر لأجهزة Android</small></span>
+            </a>
+            <p id="download-status" class="download-status" role="status" aria-live="polite">النسخة الرسمية جاهزة للتحميل.</p>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="#home">
+          <span class="brand-symbol"><img src="./assets/app-icon.png" alt=""></span>
+          <span class="brand-copy"><strong>سايس الخيل</strong><small>مستقبل إدارة الإسطبل</small></span>
+        </a>
+        <p>منظومة عربية تجمع دقة الإدارة بأصالة عالم الفروسية.</p>
+      </div>
+      <div class="footer-links">
+        <h2>استكشف</h2>
+        <a href="#vision">رؤيتنا</a>
+        <a href="#features">المزايا</a>
+        <a href="#download">التحميل</a>
+      </div>
+      <div class="footer-contact">
+        <h2>للتواصل وطلب التفعيل</h2>
+        <p>يسعدنا خدمتك عبر واتساب فقط.</p>
+        <a href="https://wa.me/966501894192" target="_blank" rel="noopener noreferrer" aria-label="التواصل عبر واتساب على الرقم 0501894192">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 11.8a8.5 8.5 0 0 1-12.6 7.4L3 20.5l1.3-4.7A8.5 8.5 0 1 1 20.5 11.8Z"/><path d="M8.2 7.7c.2-.4.4-.4.7-.4h.4c.1 0 .3 0 .4.4l.7 1.7c.1.2.1.4 0 .6l-.6.8c-.1.1-.2.3 0 .6.5.9 1.3 1.7 2.2 2.2.2.1.4.1.5-.1l.9-1c.2-.2.4-.2.6-.1l1.8.9c.2.1.4.2.4.4 0 .2-.1 1.2-.7 1.7-.6.6-1.5.8-2.3.6-1.2-.3-2.7-.9-4.2-2.2-1.2-1.1-2.1-2.5-2.5-3.6-.4-1.2 0-2 .3-2.5Z"/></svg>
+          0501894192
+        </a>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <span>© <span id="current-year">2026</span> سايس الخيل</span>
+      <span>صُمّم لعشّاق الخيل وصنّاع التميّز</span>
+    </div>
+  </footer>
 
   <script>
     (() => {
       const link = document.getElementById("android-download");
       const status = document.getElementById("download-status");
       const minimumApkSize = 1024 * 1024;
+
+      document.getElementById("current-year").textContent = new Date().getFullYear();
 
       link.addEventListener("click", async (event) => {
         if (link.dataset.verified === "true") {

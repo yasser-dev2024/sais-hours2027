@@ -36,8 +36,8 @@ void main() {
     await tester.tap(find.byTooltip('فتح مركز التنبيهات'));
     await tester.pump(const Duration(milliseconds: 700));
     expect(find.text('مركز التنبيهات'), findsOneWidget);
-    expect(find.text('إشعارات الجهاز'), findsOneWidget);
-    expect(find.text('تفعيل'), findsOneWidget);
+    expect(find.text('إشعارات الجهاز • jrs.mp3'), findsOneWidget);
+    expect(find.text('اختبار الصوت'), findsOneWidget);
     await tester.binding.handlePopRoute();
     await tester.pump(const Duration(milliseconds: 500));
 

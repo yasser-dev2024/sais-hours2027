@@ -220,7 +220,6 @@ $dateText = Get-Date -Format "yyyy-MM-dd"
 $html = Set-HtmlElementText -Html $html -Id "app-version" -Value $versionName
 $html = Set-HtmlElementText -Html $html -Id "last-updated" -Value $dateText
 $html = Set-HtmlElementText -Html $html -Id "apk-size" -Value $sizeText
-$html = Set-HtmlElementText -Html $html -Id "apk-filename" -Value $downloadFileName
 $html = [regex]::Replace(
     $html,
     '(?s)(<a\b(?=[^>]*\bid="android-download")[^>]*\bhref=")[^"]*(")',

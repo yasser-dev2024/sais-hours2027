@@ -5,6 +5,7 @@ import 'package:horse_club_mobile/app/app_theme.dart';
 import 'package:horse_club_mobile/providers/app_provider.dart';
 import 'package:horse_club_mobile/screens/alerts_screen.dart';
 import 'package:horse_club_mobile/screens/dashboard_screen.dart';
+import 'package:horse_club_mobile/screens/home_shell.dart';
 import 'package:provider/provider.dart';
 
 void main() {
@@ -61,6 +62,67 @@ void main() {
       findsOneWidget,
     );
     expect(find.text('اختبار الصوت', skipOffstage: false), findsNothing);
+    expect(tester.takeException(), isNull);
+  });
+
+  testWidgets('يعرض جرس التنبيه ويفتح مركز التنبيهات على الجوال', (
+    tester,
+  ) async {
+    tester.view.physicalSize = const Size(390, 844);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+    final app = AppProvider()
+      ..alerts = [
+        <String, Object?>{
+          'kind': 'appointment',
+          'id': 1,
+          'related_id': 1,
+          'alert_type': 'تطعيم',
+          'reason': 'موعد التطعيم',
+          'horse_name': 'الخيل',
+          'event_date': '2026-08-15',
+          'status': 'متأخر',
+        },
+      ];
+    addTearDown(app.dispose);
+
+    await tester.pumpWidget(
+      _host(
+        app,
+        Builder(
+          builder: (context) => Scaffold(
+            appBar: AppBar(
+              title: const Text('الرئيسية'),
+              actions: [
+                buildAlertBellForTesting(
+                  count: app.alerts.length,
+                  compact: true,
+                  onPressed: () => Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (_) => const AlertsScreen()),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+    await tester.pump(const Duration(milliseconds: 100));
+
+    expect(find.byTooltip('فتح مركز التنبيهات'), findsOneWidget);
+    expect(find.text('1'), findsOneWidget);
+    expect(find.byIcon(Icons.notifications_active), findsOneWidget);
+
+    await tester.tap(find.byTooltip('فتح مركز التنبيهات'));
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 900));
+
+    expect(find.text('مركز التنبيهات'), findsOneWidget);
+    expect(find.text('كل التنبيهات'), findsOneWidget);
+    expect(find.text('نوع التنبيه: موعد تطعيم'), findsOneWidget);
+    expect(find.text('اختبار الصوت'), findsOneWidget);
     expect(tester.takeException(), isNull);
   });
 }
