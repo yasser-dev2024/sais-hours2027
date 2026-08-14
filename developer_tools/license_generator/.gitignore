@@ -1,0 +1,4 @@
+keys/
+*.dpapi
+*.pem
+__pycache__/

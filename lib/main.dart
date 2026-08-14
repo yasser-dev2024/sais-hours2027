@@ -8,7 +8,7 @@ void main() {
   WidgetsFlutterBinding.ensureInitialized();
   runApp(
     ChangeNotifierProvider(
-      create: (_) => AppProvider()..initialize(),
+      create: (_) => AppProvider(),
       child: const HorseClubApp(),
     ),
   );

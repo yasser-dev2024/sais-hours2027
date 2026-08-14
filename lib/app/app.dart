@@ -3,6 +3,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:provider/provider.dart';
 
 import '../core/constants.dart';
+import '../license/license_gate.dart';
 import '../providers/app_provider.dart';
 import '../screens/home_shell.dart';
 import '../screens/full_screen_alert.dart';
@@ -28,13 +29,16 @@ class HorseClubApp extends StatelessWidget {
         GlobalCupertinoLocalizations.delegate,
       ],
       theme: AppTheme.light(primary: app.primaryColor, accent: app.accentColor),
-      home: ValueListenableBuilder<NotificationLaunchData?>(
-        valueListenable: NotificationService.instance.launchedAlert,
-        builder: (_, launched, __) => Directionality(
-          textDirection: TextDirection.rtl,
-          child: launched != null && !app.loading && app.error == null
-              ? FullScreenAlert(data: launched)
-              : _RootContent(app: app),
+      home: LicenseGate(
+        onAccessGranted: app.initialize,
+        child: ValueListenableBuilder<NotificationLaunchData?>(
+          valueListenable: NotificationService.instance.launchedAlert,
+          builder: (_, launched, __) => Directionality(
+            textDirection: TextDirection.rtl,
+            child: launched != null && !app.loading && app.error == null
+                ? FullScreenAlert(data: launched)
+                : _RootContent(app: app),
+          ),
         ),
       ),
     );

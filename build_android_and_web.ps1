@@ -75,6 +75,8 @@ if (-not $versionMatch.Success) {
 }
 $versionName = $versionMatch.Groups[1].Value
 $versionCode = $versionMatch.Groups[2].Value
+$downloadFileName = "SaisAlkhail-v$versionName-build$versionCode.apk"
+$downloadRelativePath = "./downloads/$downloadFileName"
 
 Write-Host "[1/8] flutter clean"
 if (Test-Path -LiteralPath "android\gradlew.bat") {
@@ -194,9 +196,9 @@ if ($alignmentExitCode -ne 0) {
 Write-Host "[6/8] Copy verified APK into docs/downloads"
 $downloadsDirectory = Join-Path $projectRoot "docs\downloads"
 New-Item -ItemType Directory -Path $downloadsDirectory -Force | Out-Null
-$downloadApk = Join-Path $downloadsDirectory "HorseClub.apk"
-if (Test-Path -LiteralPath $downloadApk) {
-    Remove-Item -LiteralPath $downloadApk -Force
+$downloadApk = Join-Path $downloadsDirectory $downloadFileName
+Get-ChildItem -LiteralPath $downloadsDirectory -File -Filter "*.apk" | ForEach-Object {
+    Remove-Item -LiteralPath $_.FullName -Force
 }
 Copy-Item -LiteralPath $sourceApk -Destination $downloadApk -Force
 
@@ -218,16 +220,30 @@ $dateText = Get-Date -Format "yyyy-MM-dd"
 $html = Set-HtmlElementText -Html $html -Id "app-version" -Value $versionName
 $html = Set-HtmlElementText -Html $html -Id "last-updated" -Value $dateText
 $html = Set-HtmlElementText -Html $html -Id "apk-size" -Value $sizeText
-$html = Set-HtmlElementText -Html $html -Id "apk-sha256" -Value $downloadHash
+$html = Set-HtmlElementText -Html $html -Id "apk-filename" -Value $downloadFileName
+$html = [regex]::Replace(
+    $html,
+    '(?s)(<a\b(?=[^>]*\bid="android-download")[^>]*\bhref=")[^"]*(")',
+    ('$1' + $downloadRelativePath + '$2')
+)
+$html = [regex]::Replace(
+    $html,
+    '(?s)(<a\b(?=[^>]*\bid="android-download")[^>]*\bdownload=")[^"]*(")',
+    ('$1' + $downloadFileName + '$2')
+)
 [IO.File]::WriteAllText($indexPath, $html, (New-Object Text.UTF8Encoding($false)))
 
 $updatedHtml = Get-Content -LiteralPath $indexPath -Raw -Encoding UTF8
-if ([regex]::Matches($updatedHtml, 'href="\./downloads/HorseClub\.apk"').Count -ne 1) {
-    throw "The page must contain exactly one relative HorseClub.apk download link."
+if ([regex]::Matches($updatedHtml, 'href="' + [regex]::Escape($downloadRelativePath) + '"').Count -ne 1) {
+    throw "The page must contain exactly one versioned relative APK download link."
 }
 if ([regex]::Matches($updatedHtml, 'id="android-download"').Count -ne 1 -or
     [regex]::Matches($updatedHtml, 'class="download-button"').Count -ne 1) {
     throw "The page must contain exactly one visible Android download button."
+}
+$publishedApks = @(Get-ChildItem -LiteralPath $downloadsDirectory -File -Filter "*.apk")
+if ($publishedApks.Count -ne 1 -or $publishedApks[0].Name -ne $downloadFileName) {
+    throw "docs/downloads must contain only the current versioned APK."
 }
 if ($updatedHtml -match '(?i)(file:///|localhost|127\.0\.0\.1|[A-Z]:\\Users\\)') {
     throw "A forbidden local path was found in docs/index.html."

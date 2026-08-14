@@ -7,13 +7,20 @@ import 'package:horse_club_mobile/database/database_service.dart';
 void main() {
   IntegrationTestWidgetsFlutterBinding.ensureInitialized();
 
-  testWidgets('يفتح التطبيق دون مفتاح ويتنقل بين الوحدات الرئيسية', (
+  testWidgets('يفتح التطبيق خلال التجربة دون مفتاح ويتنقل بين الوحدات', (
     tester,
   ) async {
     app.main();
     await tester.pump();
     expect(find.text('سايس الخيل'), findsOneWidget);
 
+    await tester.pump(const Duration(milliseconds: 500));
+    final agreement = find.text('قرأت وأوافق على التعهد');
+    if (agreement.evaluate().isNotEmpty) {
+      await tester.tap(agreement);
+      await tester.pump();
+      await tester.tap(find.text('أوافق وأتابع'));
+    }
     await tester.pump(const Duration(seconds: 4));
     await tester.pump(const Duration(milliseconds: 600));
     final skipPermissions = find.text('الدخول الآن وإكمال الأذونات لاحقًا');
